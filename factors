@@ -24,10 +24,10 @@ def factorize_file(file_name):
 				num_list.append(line.strip())
 
 		results = factorize_nums(num_list)
-
-		full = dict(zip(num_list, results))
-		for k, v in full.items():
-			print("{}={}*{}".format(k, v[0], v[1]))
+		if results:
+			full = dict(zip(num_list, results))
+			for k, v in full.items():
+				print("{}={}*{}".format(k, v[0], v[1]))
 	except FileNotFoundError:
 		sys.exit("File not found")
 
