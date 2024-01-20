@@ -17,19 +17,22 @@ def factorize_nums(numbers):
 
 def factorize_file(file_name):
 	num_list = []
-	with open(file_name) as file:
-		data = file.readlines()
-		for line in data:
-			num_list.append(line.strip())
+	try:
+		with open(file_name) as file:
+			data = file.readlines()
+			for line in data:
+				num_list.append(line.strip())
 
-	results = factorize_nums(num_list)
+		results = factorize_nums(num_list)
 
-	full = dict(zip(num_list, results))
-	for k, v in full.items():
-		print("{}={}*{}".format(k, v[0], v[1]))
+		full = dict(zip(num_list, results))
+		for k, v in full.items():
+			print("{}={}*{}".format(k, v[0], v[1]))
+	except FileNotFoundError:
+		sys.exit("File not found")
 
 if __name__ == "__main__":
 
     if len(sys.argv) != 2:
-        raise SyntaxError("[BAD-USAGE]: Expected only one argument")
+        sys.exit("Usage: factor <file>")
     factorize_file(sys.argv[1])
