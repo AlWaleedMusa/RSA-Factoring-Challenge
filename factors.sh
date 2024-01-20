@@ -1,2 +1,7 @@
-#!/bin/bash
-python factors_main.py $1
+#!/usr/bin/bash
+FILE=$1
+while read NUMBERS:
+do
+	factors=($(factor $NUMBERS))
+	echo "$NUMBERS=$(($NUMBERS/${factors[1]}))}*${factors[1]}"
+done < $FILE
