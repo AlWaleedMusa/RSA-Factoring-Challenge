@@ -13,6 +13,7 @@ def factorize_file(file_name):
 			num = int(line)
 			result = factorize_nums(num)
 			print ("{}={}*{}".format(num, int(num / result), result))
+	file.close()
 
 if __name__ == "__main__":
 
