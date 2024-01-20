@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import sys
 
 def factorize_nums(numbers):
@@ -28,10 +28,8 @@ def factorize_file(file_name):
 	for k, v in full.items():
 		print("{}={}*{}".format(k, v[0], v[1]))
 
-factorize_file()
-
 if __name__ == "__main__":
 
-    if len(sys.argv) is not 2:
+    if len(sys.argv) != 2:
         raise SyntaxError("[BAD-USAGE]: Expected only one argument")
     factorize_file(sys.argv[1])
